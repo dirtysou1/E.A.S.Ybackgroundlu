@@ -167,15 +167,16 @@ class _LoginScreenState extends State<LoginScreen> {
           height: 50.0,
           width: 145.0,
           child: Icon(
-            Icons.account_box,
-            size: 100.0,
+            Icons.account_circle,color: Colors.white24,
+            size: 150.0,
           ),
         ),
+        SpaceH48(),
         new Container(
           margin: EdgeInsets.only(top: 50.0, left: 15.0, right: 15.0),
           padding: EdgeInsets.only(bottom: 45),
           child: new Text(
-            "Giriş Yap",style: Styles.titleTextStyleWithSecondaryTextColor,
+            "GİRİŞ YAP",style: Styles.titleTextStyleWithSecondaryTextColor,
             maxLines: 1,
           ),
         ),
