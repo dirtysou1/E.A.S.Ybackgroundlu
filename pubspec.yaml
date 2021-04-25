@@ -58,6 +58,8 @@ dependencies:
   volume_watcher: ^1.3.1
   flutter_svg:
   firebase_messaging: ^7.0.3
+  geolocator: ^6.2.1
+  mailer:
 dev_dependencies:
 
   flutter_launcher_icons: "^0.8.0"

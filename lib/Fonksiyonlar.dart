@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:background_location/background_location.dart';
-
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy/plugins_utils/DeviceInfo.dart';
@@ -134,6 +134,10 @@ String yardimDatasi;
   String latitude;
   String longtitude;
   bool acilis;
+
+
+
+
   void lokka() async {
     acilis=true;
 /*    await BackgroundLocation.setAndroidNotification(

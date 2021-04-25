@@ -8,20 +8,21 @@ class PotbellyButton extends StatelessWidget {
   final String buttonText;
   final TextStyle buttonTextStyle;
   final GestureTapCallback onTap;
+  final EdgeInsets margin;
 
   PotbellyButton(this.buttonText,
       {this.buttonWidth = Sizes.WIDTH_300,
       this.buttonHeight = Sizes.HEIGHT_60,
       this.decoration = Decorations.primaryButtonDecoration,
       this.buttonTextStyle = Styles.normalTextStyle,
-      this.onTap
+      this.onTap,this.margin
       });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
+      child: Container(margin: margin,
         width: buttonWidth,
         height: buttonHeight,
 //        margin: EdgeInsets.only(bottom: 57),

@@ -129,6 +129,7 @@ print('BUTON İZİNLERİ 1.Sİ SHAREDPR 2.GLOBAL VARIABLE : $bool2 -- ${_fonks.a
 
 
       if(bool2==true||(_fonks.acilis)==true||_counter.count.value>1) {
+
         _fonks.lokka();
 
         //_fonks.getCurrentLocation();
