@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:easy/views/sifreReset.dart';
 import 'package:flutter_session/flutter_session.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
@@ -245,9 +246,11 @@ class _LoginScreenState extends State<LoginScreen> {
         //onPressed: () { _loginButtonTapped();},
 
         new FlatButton(
-            onPressed: () {},
+            onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => passReset()));},
             child: new Text(
               'Şifrenizi mi unuttunuz?',style: Styles.normalTextStyle,
+
             )),
         new Container(
           decoration: BoxDecoration(

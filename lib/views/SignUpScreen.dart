@@ -71,6 +71,12 @@ String email,isim,soyisim;
         preferences.setString("emailkayit", _emailTextController.text);
         var emailkayit= preferences.getString("emailkayit");
         var urlGet= preferences.getString("urldogrula");
+        preferences.setString("KayitIsim", _firstNameTextController.text);
+        preferences.setString("KayitSoyisim", _lastNameTextController.text);
+        var kayitIsim= preferences.getString("KayitIsim");
+        var kayitSoyisim= preferences.getString("KayitSoyisim");
+
+        print('$kayitIsim $kayitSoyisim');
         print(urlGet);
         print(emailkayit);
 
@@ -781,7 +787,7 @@ div.preheader {
   Widget build(BuildContext context) {
     divWidth = MediaQuery.of(context).size.width;
     return Container(
-      child: Scaffold(
+      child: MaterialApp(debugShowCheckedModeBanner: false ,home:Scaffold(
         backgroundColor: Colors.purple,
         // home: Image.asset('assets/bg.jpg'),
 
@@ -804,7 +810,7 @@ div.preheader {
               ),
             )),
       ),
-    );
+    ));
   }
 
   Widget _buildEmailSignUpForm() {
@@ -832,7 +838,7 @@ div.preheader {
                   color: Colors.white70, fontSize: 30),
               maxLines: 1,
             )),
-   SpaceH8(),
+   SpaceH16(),
         new Container(
           height: 65,
           width: 250,

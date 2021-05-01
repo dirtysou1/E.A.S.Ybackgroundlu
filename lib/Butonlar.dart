@@ -106,8 +106,10 @@ class _ButonlarState extends State<Butonlar> {
   bool yardim;
   Future yardimSil() async {
     var url = 'https://www.easyrescuer.com/YardimSil.php';
+    print(finaltel);
+    print(tel);
     var response = await http.post(Uri.parse(url), body: {
-      "yardim_tel": finaltel.toString().trim(),
+      "yardim_tel": tel.toString().trim(),
     });
     return jsonDecode(response.body);
   }

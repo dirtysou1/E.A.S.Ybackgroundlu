@@ -2,16 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'dart:ui';
 import 'package:background_location/background_location.dart';
-import 'package:easy/dialog_box.dart';
 
 import 'package:easy/widgets/app_retain_widget.dart';
-/// Flutter code sample for BottomNavigationBar
-
-import 'package:workmanager/workmanager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,13 +24,9 @@ import 'package:easy/Butonlar.dart';
 import 'package:easy/Yaknlarm.dart';
 import 'package:easy/SonDepremler.dart';
 import 'package:easy/views/LoginScreen.dart';
-import 'package:easy/Component91.dart';
-import 'Fonksiyonlar.dart';
 import 'ProfilSayfasi.dart';
-import 'package:android_alarm_manager/android_alarm_manager.dart';
 
 import 'background_main.dart';
-import 'counter_service.dart';
 import 'views/LoginScreen.dart';
 String konum,enlem,boylam,enlemDigit,boylamDigit;
 int enlemEksi2,enlemArti2,longtitudeEksi2,longtitudeArti2;
@@ -112,7 +103,6 @@ class _MyAppState extends State<MyApp> {
     getValidationData().whenComplete(() async {
       Timer(Duration(seconds:0),()=> Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => (finalEmail==null ? LoginScreen() : MyStatefulWidget()))));
-
 
 
     });
@@ -247,6 +237,7 @@ void lokaCek(bool ceksinmi)async {
       finaldogumyili= obtaindogumyili;
       finalil =obtainil;
       finaltel = obtainnumara;
+
       /*finalyakinnumara1= obtainYakinnumara1;
     finalyakinisim1 = obtainYakinisim1;
     finalyakinoyisim1 =obtainYakinsoyisim1;*/
@@ -353,18 +344,18 @@ _fonks.lokka();
 
         child:ClipRRect(borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)
+          topRight: Radius.circular(30.0),bottomLeft: Radius.circular(0),bottomRight: Radius.circular(0)
         ),
 
             child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),activeIcon:Icon(Icons.home) ,
               label: 'Anasayfa',
               backgroundColor: Color.fromRGBO(54,54,54,1),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_box_outlined),
+              icon: Icon(Icons.account_box_outlined),activeIcon:Icon(Icons.account_box) ,
               label: 'Profil',
               backgroundColor: Color.fromRGBO(54,54,54,1),
             ),
@@ -375,44 +366,20 @@ _fonks.lokka();
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.apartment_outlined),
-              activeIcon: Icon(Icons.apartment_sharp),
+              activeIcon: Icon(Icons.apartment),
               label: 'Son Depremler',
               backgroundColor: Color.fromRGBO(54,54,54,1),
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Colors.red,
           onTap: _onItemTapped,
         )),
       ),
     );
   }
 }
-class BackGroundService extends StatelessWidget{
-  Future<void> startService()
-  async {
-    if(Platform.isAndroid)
-    {
-      var methodChannel=MethodChannel("com.example.messages");
-      String data=await methodChannel.invokeMethod("startService");
-      debugPrint(data);
 
-    }
-  }
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(title: Text("Flutter Background Service"),backgroundColor: Colors.green,),
-      body: Center(child: MaterialButton(
-        onPressed:(){startService();},
-        color: Colors.brown,
-        child: Text("Start Service",style: TextStyle(color: Colors.white),),
-      ),),
-    );
-  }
-
-}
 final Battery _battery = Battery();
 LocationService loca1 = new LocationService();
 UserLocation Loca = new UserLocation();

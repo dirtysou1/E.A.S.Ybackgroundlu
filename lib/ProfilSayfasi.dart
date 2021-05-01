@@ -72,12 +72,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
     return new Column(
 
       children: [
-        CircleAvatar(
-          radius: 70,
-          backgroundColor: Color.fromRGBO(255, 255, 255, 0.3),
-          child: Image.asset('assets/images/personcon.png'),
-        ),
-        SpaceH40(),
+        Icon(Icons.account_circle_sharp,size: 140,color: Colors.white24,),
+        SpaceH24(),
         Container(
           height: 450,
           width: 400,

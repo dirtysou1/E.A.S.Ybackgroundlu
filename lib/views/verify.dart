@@ -22,7 +22,9 @@ class _VerifyEmailState extends State<VerifyEmail> {
   sendMail() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     var kisiEmail = preferences.getString("emailkayit");
-    print(kisiEmail);
+    var kayitIsim= preferences.getString("KayitIsim");
+    var kayitSoyisim= preferences.getString("KayitSoyisim");
+    print('$kisiEmail $kayitIsim $kayitSoyisim');
     String username = "noreply@easyrescuer.com";
     String password = "153624AaAa"; //passsword
      final smtpServer = SmtpServer('smtp.hostinger.com',username: username,password: password);
@@ -549,7 +551,7 @@ div.preheader {
         
             <div style="Margin-left: 20px;Margin-right: 20px;">
       <div style="mso-line-height-rule: exactly;mso-text-raise: 11px;vertical-align: middle;">
-        <h1 style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #2f3433;font-size: 40px;line-height: 47px;font-family: Oswald,Avenir Next Condensed,Arial Narrow,MS UI Gothic,sans-serif;text-align: center;"><span style="color:#ffffff">Sizi korumaya geldik.</span></h1><p style="Margin-top: 20px;Margin-bottom: 20px;text-align: center;"><span style="color:#faf0fa">Bu uygulamaya kayıt olduğunuzda&nbsp;tehlike veya doğal afet durumlarında iletişiminiz kesilmeyecek.</span></p>
+        <h1 style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #2f3433;font-size: 40px;line-height: 47px;font-family: Oswald,Avenir Next Condensed,Arial Narrow,MS UI Gothic,sans-serif;text-align: center;"><span style="color:#ffffff">${kayitIsim.toUpperCase()} ${kayitSoyisim.toUpperCase()} seni korumaya geldik.</span></h1><p style="Margin-top: 20px;Margin-bottom: 20px;text-align: center;"><span style="color:#faf0fa">Bu uygulamaya kayıt olduğunuzda&nbsp;tehlike veya doğal afet durumlarında iletişiminiz kesilmeyecek.</span></p>
       </div>
     </div>
         
@@ -745,10 +747,10 @@ div.preheader {
           decoration: BoxDecoration(
             color: Color.fromRGBO(255, 255, 255, 0.3),
             borderRadius: BorderRadius.circular(10),
-          ),
+          ),margin: EdgeInsets.only(left: 30,right: 30) ,
           child: Center(
             child: Container(
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.all(20),
               child: Text(
                 "E-posta adresinize bir doğrulama linki gönderdik.\n \n Giriş yapmak için lütfen e-posta adresinizi doğrulayınız.",
                 style: Styles.mediumTextStyle,
@@ -759,11 +761,14 @@ div.preheader {
         SpaceH40(),
 
            Row(children: [
+             SpaceW60(),
             Center(child:PotbellyButton(
-              "TEKRAR GÖNDER",margin: EdgeInsets.all(80),decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),color: Colors.white30),
+              "TEKRAR GÖNDER",decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),color: Colors.white30),
               buttonWidth: 100,
               onTap: () async {
+
                 sendMail();
+
               },
             ),) ,
             PotbellyButton(
